@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".fragment_menu_contacts">
+
+    <RelativeLayout
+        android:id="@+id/header_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/headers">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/contacts"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/headers_text"
+            android:layout_marginStart="10dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/contacts_search"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/header_contacts"
+        android:background="@color/headers">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contact_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="5dp"
+        android:layout_below="@+id/contacts_search"/>
+
+
+</RelativeLayout>

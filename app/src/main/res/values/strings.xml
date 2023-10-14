@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DLWorkHelper</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello">Добро пожаловать,</string>
+    <string name="hoursworked">Отработано:</string>
+    <string name="hoursall">Норма:</string>
+    <string name="contacts">Контакты</string>
+    <string name="journal">Журнал записей</string>
+    <string name="settings">Настройки</string>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomNav"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:menu="@menu/bottom_menu">
+
+    <FrameLayout
+        android:id="@+id/main_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headers"
+        app:itemRippleColor="@color/dl_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:background="@color/dl_light"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:gravity="center"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent">-->
+
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/menu_home_button"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="5dp"-->
+    <!--            android:layout_marginBottom="5dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:background="#00FFFFFF"-->
+    <!--            android:scaleType="fitCenter"-->
+    <!--            android:src="@drawable/menu_home"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/menu_journal_button"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="5dp"-->
+    <!--            android:layout_marginBottom="5dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:background="#00FFFFFF"-->
+    <!--            android:scaleType="fitCenter"-->
+    <!--            android:src="@drawable/menu_journal"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/menu_contacts_button"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="5dp"-->
+    <!--            android:layout_marginBottom="5dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:background="#00FFFFFF"-->
+    <!--            android:scaleType="fitCenter"-->
+    <!--            android:src="@drawable/menu_contacts"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/menu_settings_button"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="5dp"-->
+    <!--            android:layout_marginBottom="5dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:background="#00FFFFFF"-->
+    <!--            android:scaleType="fitCenter"-->
+    <!--            android:src="@drawable/menu_settings"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+    <!--    </LinearLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
