@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/TimeNoteDate"
+                android:id="@+id/TurnoverNoteDate"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="6dp"
@@ -31,53 +31,28 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/TimeNoteDayStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="6dp"
-                android:layout_toEndOf="@+id/TimeNoteDate"
-                android:gravity="center_vertical"
-                android:text="В"
-                android:textColor="@color/green"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
-
             <View
                 android:id="@+id/divider2"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:layout_marginVertical="2dp"
-                android:layout_toEndOf="@+id/TimeNoteDayStatus"
+                android:layout_toEndOf="@+id/TurnoverNoteDate"
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                android:id="@+id/TimeNoteTime"
+                android:id="@+id/TurnoverNoteCash"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="6dp"
                 android:layout_toEndOf="@+id/divider2"
                 android:gravity="center_vertical"
-                android:text="07.30 - 19.20"
+                android:text="4500000.00 P."
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/TimeNoteTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="6dp"
-                android:layout_toStartOf="@+id/TimeGoToNote"
-                android:gravity="center_vertical"
-                android:text="10.83 ч."
-                android:textColor="@color/contacts_phone"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
             <ImageButton
-                android:id="@+id/TimeGoToNote"
+                android:id="@+id/TurnoverGoToNote"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"

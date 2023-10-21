@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group>
+        <item
+            android:title="Калькулятор ПЛ"
+            android:id="@+id/mainMenuDrawerCalculate"
+            android:icon="@drawable/baseline_calculate_24"/>
+        <item
+            android:title="Генератор штрихкодов"
+            android:id="@+id/mainMenuDrawerGenerateBarcode"
+            android:icon="@drawable/barcode"/>
+        <item
+            android:title="Синхронизировать данные"
+            android:id="@+id/mainMenuDrawerSyncDB"
+            android:icon="@drawable/sync"/>
+        <item
+            android:title="Репорт"
+            android:id="@+id/mainMenuDrawerReport"
+            android:icon="@drawable/report"/>
+        <item
+            android:title="Настройки"
+            android:id="@+id/mainMenuDrawerSettings"
+            android:icon="@drawable/menu_settings"/>
+        <item
+            android:title="Выйти из аккаунта"
+            android:id="@+id/mainMenuDrawerLogout"
+            android:icon="@drawable/logout"/>
+    </group>
+</menu>

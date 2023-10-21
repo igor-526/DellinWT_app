@@ -15,9 +15,4 @@
         android:icon="@drawable/menu_contacts"
         android:title="Контакты"
         android:orderInCategory="3"/>
-    <item
-        android:id="@+id/menu_settings_button"
-        android:icon="@drawable/menu_settings"
-        android:title="Настройки"
-        android:orderInCategory="4"/>
 </menu>

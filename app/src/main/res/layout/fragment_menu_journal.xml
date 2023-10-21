@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".fragment_menu_journal">
+    tools:context=".mainApp.FragmentMenuJournal">
 
     <RelativeLayout
         android:id="@+id/header_journal"
@@ -27,13 +27,95 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_journal"
+        android:background="@color/headers"
+        android:id="@+id/journalTabs">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Время" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поездки" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Оборот" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@+id/journalTabs"
         android:background="@color/background"
         android:layout_marginHorizontal="5dp"
         android:id="@+id/journal_recycler"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/headers"
+        android:layout_marginStart="10dp"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/journalStatus1Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cтатус 1: "
+                android:textSize="20sp"
+                android:textColor="@color/headers_text"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/journalStatus1Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Значение 1"
+                android:layout_toEndOf="@+id/journalStatus1Title"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/journalStatus2Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cтатус 2: "
+                android:textSize="20sp"
+                android:textColor="@color/headers_text"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/journalStatus2Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Значение 2"
+                android:layout_toEndOf="@+id/journalStatus2Title"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

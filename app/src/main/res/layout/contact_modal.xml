@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="450dp"
+    android:background="@color/background">
+
+    <RelativeLayout
+        android:id="@+id/headerContactItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headers">
+
+        <TextView
+            android:id="@+id/contactItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="85dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Текст Текст Текст Текст Текст Текст"
+            android:textSize="32sp"/>
+
+
+        <ImageButton
+            android:id="@+id/contactItemBack"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#00FFFFFF"
+            android:padding="3dp"
+            android:paddingStart="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/close"
+            app:tint="@color/black"
+            tools:src="@drawable/close" />
+
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/contactItemPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerContactItem"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:textStyle="italic"
+        android:text="Претензионный отдел"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/contactItemComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@+id/contactItemPosition"
+        android:textStyle="italic"
+        android:text="Претензионный отдел"
+        android:textSize="24sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/contactItemNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/contacts_phone"
+            android:text="+79117488008"
+            android:textSize="28sp"
+            android:gravity="center_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/contactItemNumber">
+
+
+            <ImageButton
+                android:id="@+id/contactItemCall"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/phone"
+                tools:src="@drawable/phone"
+                app:tint="@color/dl_dark"
+                android:layout_marginHorizontal="20dp"/>
+
+            <ImageButton
+                android:id="@+id/contactItemWhatsapp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/whatsapp"
+                tools:src="@drawable/whatsapp"
+                app:tint="@color/green"
+                android:layout_marginHorizontal="20dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
