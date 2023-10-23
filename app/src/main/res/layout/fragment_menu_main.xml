@@ -127,5 +127,49 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/dl_dark"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="25dp">
+
+        <TextView
+            android:id="@+id/kmfText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Последние данные"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="7dp"/>
+
+        <TextView
+            android:id="@+id/kmfOdo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Одометр: 123456 км"
+            android:layout_below="@+id/kmfText"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginVertical="4dp"/>
+
+        <TextView
+            android:id="@+id/kmfFuel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Топливо: 48.65 л."
+            android:layout_below="@+id/kmfOdo"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginVertical="4dp"/>
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
