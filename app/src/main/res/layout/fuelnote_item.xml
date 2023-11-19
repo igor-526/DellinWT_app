@@ -71,8 +71,8 @@
                 android:backgroundTint="#00E16363"
                 android:padding="0dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/arrow_r"
-                tools:src="@drawable/arrow_r"
+                android:src="@drawable/icon_arrow_right"
+                tools:src="@drawable/icon_arrow_right"
                 app:tint="@color/dl_dark" />
 
         </RelativeLayout>

@@ -7,31 +7,36 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dlworkhelper.R
+import com.example.dlworkhelper.database.FuelNoteDB
 import com.example.dlworkhelper.databinding.FuelnoteItemBinding
 import com.example.dlworkhelper.dataclasses.FuelNote
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-class FuelJournalAdapter(val listener: Listener) : ListAdapter<FuelNote, FuelJournalAdapter.Holder>(Comparator()){
+class FuelJournalAdapter(val listener: Listener) : ListAdapter<FuelNoteDB, FuelJournalAdapter.Holder>(Comparator()){
     class Holder(view: View) : RecyclerView.ViewHolder(view){
         private val binding = FuelnoteItemBinding.bind(view)
-        fun bind(fuelNote: FuelNote, listener: Listener) = with(binding){
+        fun bind(fuelNote: FuelNoteDB, listener: Listener) = with(binding){
             val kmText = fuelNote.km.toString() + " км"
             val lText = fuelNote.fuel.toString() + " л."
-            FuelNoteDate.text = fuelNote.date.toString()
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            val date = LocalDate.parse(fuelNote.date, formatter)
+            FuelNoteDate.text = date.dayOfMonth.toString().padStart(2, '0')
             FuelNoteKm.text = kmText
             FuelNoteL.text = lText
             FuelGoToNote.setOnClickListener {
-                listener.onClickFuel(fuelNote)
+                listener.onClickFuel(fuelNote, adapterPosition)
             }
         }
 
     }
 
-    class Comparator : DiffUtil.ItemCallback<FuelNote>() {
-        override fun areItemsTheSame(oldItem: FuelNote, newItem: FuelNote): Boolean {
+    class Comparator : DiffUtil.ItemCallback<FuelNoteDB>() {
+        override fun areItemsTheSame(oldItem: FuelNoteDB, newItem: FuelNoteDB): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: FuelNote, newItem: FuelNote): Boolean {
+        override fun areContentsTheSame(oldItem: FuelNoteDB, newItem: FuelNoteDB): Boolean {
             return oldItem == newItem
         }
     }
@@ -47,6 +52,6 @@ class FuelJournalAdapter(val listener: Listener) : ListAdapter<FuelNote, FuelJou
     }
 
     interface Listener{
-        fun onClickFuel(fuelNote: FuelNote)
+        fun onClickFuel(fuelNote: FuelNoteDB, position: Int)
     }
 }

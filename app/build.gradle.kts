@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.dlworkhelper"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -46,6 +46,10 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    implementation("com.google.zxing:core:3.4.0")
+
+    implementation("com.airbnb.android:lottie:6.1.0")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

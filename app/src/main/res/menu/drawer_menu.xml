@@ -5,28 +5,28 @@
     tools:showIn="navigation_view">
     <group>
         <item
-            android:title="Калькулятор ПЛ"
+            android:title="@string/DrawerMenuCalculator"
             android:id="@+id/mainMenuDrawerCalculate"
-            android:icon="@drawable/baseline_calculate_24"/>
+            android:icon="@drawable/menu_calculator"/>
         <item
-            android:title="Генератор штрихкодов"
+            android:title="@string/DrawerMenuGenerator"
             android:id="@+id/mainMenuDrawerGenerateBarcode"
-            android:icon="@drawable/barcode"/>
+            android:icon="@drawable/menu_barcode"/>
         <item
-            android:title="Синхронизировать данные"
+            android:title="@string/DrawerMenuSync"
             android:id="@+id/mainMenuDrawerSyncDB"
-            android:icon="@drawable/sync"/>
+            android:icon="@drawable/menu_sync"/>
         <item
-            android:title="Репорт"
+            android:title="@string/DrawerMenuReport"
             android:id="@+id/mainMenuDrawerReport"
-            android:icon="@drawable/report"/>
+            android:icon="@drawable/menu_report"/>
         <item
-            android:title="Настройки"
+            android:title="@string/DrawerMenuSettings"
             android:id="@+id/mainMenuDrawerSettings"
             android:icon="@drawable/menu_settings"/>
         <item
-            android:title="Выйти из аккаунта"
+            android:title="@string/DrawerMenuExit"
             android:id="@+id/mainMenuDrawerLogout"
-            android:icon="@drawable/logout"/>
+            android:icon="@drawable/menu_logout"/>
     </group>
 </menu>

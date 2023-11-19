@@ -1,8 +1,7 @@
 package com.example.dlworkhelper.dataclasses
 
-data class TimeNote(val date: Int,
-                    val start: String,
+data class TimeNote(val start: String,
                     val end: String,
-                    val id: Float,
+                    val id: Int,
                     val total: Float,
                     val c: Int)

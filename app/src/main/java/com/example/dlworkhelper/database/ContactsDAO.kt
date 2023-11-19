@@ -15,4 +15,10 @@ interface ContactsDAO {
 
     @Query("DELETE FROM contacts")
     fun deleteAllContacts()
+
+    @Query("SELECT * FROM contacts WHERE position = :pos")
+    fun getPositionContacts(pos: String): List<ContactDB>
+
+    @Query("SELECT * FROM contacts WHERE name LIKE '%' || :q || '%'")
+    fun getSearchContacts(q: String): List<ContactDB>
 }

@@ -7,34 +7,42 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dlworkhelper.R
-import com.example.dlworkhelper.databinding.TimenoteItemBinding
+import com.example.dlworkhelper.database.TimeNoteDB
+import com.example.dlworkhelper.databinding.ItemTimenoteBinding
 import com.example.dlworkhelper.dataclasses.TimeNote
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
-class TimeJournalAdapter(val listener: Listener) : ListAdapter<TimeNote, TimeJournalAdapter.Holder>(Comparator()) {
+class TimeJournalAdapter(private val listener: Listener) : ListAdapter<TimeNoteDB, TimeJournalAdapter.Holder>(Comparator()) {
     class Holder(view: View) : RecyclerView.ViewHolder(view){
-        private val binding = TimenoteItemBinding.bind(view)
-
-        fun bind(timeNote: TimeNote, listener: Listener) = with(binding){
+        private val binding = ItemTimenoteBinding.bind(view)
+        fun bind(timeNote: TimeNoteDB, listener: Listener) = with(binding){
             val totalText = timeNote.total.toString() + " ч."
-            TimeNoteDate.text = timeNote.date.toString()
-            val timeF = timeNote.start + " - " + timeNote.end
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            val start = LocalDateTime.parse(timeNote.start, formatter)
+            val end = LocalDateTime.parse(timeNote.end, formatter)
+            TimeNoteDate.text = start.dayOfMonth.toString().padStart(2, '0')
+            val timeF = start.hour.toString().padStart(2, '0') + ":" +
+                    start.minute.toString().padStart(2, '0') + " - " +
+                    end.hour.toString().padStart(2, '0') + ":" +
+                    end.minute.toString().padStart(2, '0')
             TimeNoteTime.text = timeF
             TimeNoteTotal.text = totalText
             if (timeNote.c == 2)
                 TimeNoteDayStatus.visibility = View.VISIBLE
             TimeGoToNote.setOnClickListener {
-                listener.onClickTime(timeNote)
+                listener.onClickTime(timeNote, adapterPosition)
             }
         }
 
     }
 
-    class Comparator : DiffUtil.ItemCallback<TimeNote>(){
-        override fun areItemsTheSame(oldItem: TimeNote, newItem: TimeNote): Boolean {
+    class Comparator : DiffUtil.ItemCallback<TimeNoteDB>(){
+        override fun areItemsTheSame(oldItem: TimeNoteDB, newItem: TimeNoteDB): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: TimeNote, newItem: TimeNote): Boolean {
+        override fun areContentsTheSame(oldItem: TimeNoteDB, newItem: TimeNoteDB): Boolean {
             return oldItem == newItem
         }
 
@@ -43,7 +51,7 @@ class TimeJournalAdapter(val listener: Listener) : ListAdapter<TimeNote, TimeJou
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.timenote_item, parent, false)
+            .inflate(R.layout.item_timenote, parent, false)
         return Holder(view)
     }
 
@@ -52,6 +60,6 @@ class TimeJournalAdapter(val listener: Listener) : ListAdapter<TimeNote, TimeJou
     }
 
     interface Listener{
-        fun onClickTime(timeNote: TimeNote)
+        fun onClickTime(timeNote: TimeNoteDB, position: Int)
     }
 }

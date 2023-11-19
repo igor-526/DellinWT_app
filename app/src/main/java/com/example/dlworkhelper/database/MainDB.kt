@@ -6,12 +6,20 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database (entities = [ContactDB::class,
-                      SettingsDB::class], version = 2)
+                      SettingsDB::class,
+                      AutoDB::class,
+                      TimeNoteDB::class,
+                      FuelNoteDB::class,
+                      TurnoverNoteDB::class],version = 2)
 abstract class MainDB : RoomDatabase() {
 
     abstract fun getContactsDAO(): ContactsDAO
 
     abstract fun getSettingsDAO(): SettingsDAO
+
+    abstract fun getAutoDAO(): AutoDAO
+
+    abstract fun getJournalDAO(): JournalDAO
 
     companion object{
         fun getDB(context: Context): MainDB {

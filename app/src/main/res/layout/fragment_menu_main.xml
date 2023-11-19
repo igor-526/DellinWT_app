@@ -9,35 +9,36 @@
     tools:context=".mainApp.FragmentMenuMain">
 
     <RelativeLayout
-        android:id="@+id/header"
+        android:id="@+id/FragmentMainHeader"
         android:layout_width="match_parent"
         android:layout_height="175dp"
-        android:background="@color/dl_dark">
+        android:background="@drawable/wg_headers"
+        android:layout_marginHorizontal="10dp">
 
         <ImageButton
-            android:id="@+id/mainMenuButton"
+            android:id="@+id/FragmentMainMenuButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/menu"
-            tools:src="@drawable/menu"
+            android:src="@drawable/icon_menu"
+            tools:src="@drawable/icon_menu"
             app:tint="#FFFFFF"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:gravity="center"
-            android:layout_toEndOf="@+id/mainMenuButton"
+            android:layout_toEndOf="@+id/FragmentMainMenuButton"
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:text="@string/hello"
+            android:text="@string/FMainHello"
             android:textColor="@color/white"
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/username"
+            android:id="@+id/FragmentMainUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -51,14 +52,14 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/header"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FragmentMainHeader"
         android:background="@color/background"
         android:layout_marginHorizontal="35dp"
         android:layout_marginTop="-50dp">
 
         <ProgressBar
-            android:id="@+id/hours_progress"
+            android:id="@+id/FragmentMainHoursProgress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="25dp"
@@ -69,11 +70,12 @@
             android:progressTint="@color/dl_dark" />
 
         <LinearLayout
+            android:id="@+id/FragmentMainTime"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:orientation="horizontal"
             android:weightSum="2"
-            android:layout_below="@+id/hours_progress">
+            android:layout_below="@+id/FragmentMainHoursProgress">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,13 +86,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/hoursworked"
+                    android:text="@string/FMainHoursWorked"
                     android:gravity="center"
                     android:textSize="22sp"
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/hours_worked"
+                    android:id="@+id/FragmentMainHoursWorked"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -109,13 +111,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/hoursall"
+                    android:text="@string/FMainHoursAll"
                     android:gravity="center"
                     android:textSize="22sp"
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/hours_all"
+                    android:id="@+id/FragmentMainHoursAll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -125,6 +127,152 @@
 
             </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:id="@+id/FragmentMainDivider1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/gray"
+            android:layout_below="@+id/FragmentMainTime"/>
+
+        <LinearLayout
+            android:id="@+id/FragmentMainDriving"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@+id/FragmentMainDivider1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/FMainFuelKM"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/FragmentMainDrivingKM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/FMainFuelF"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/FragmentMainDrivingFuel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/FragmentMainDivider2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/gray"
+            android:layout_below="@+id/FragmentMainDriving"/>
+
+        <TextView
+            android:id="@+id/FragmentMainSalaryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FragmentMainDivider2"
+            android:text="@string/FMainSalary"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/contacts_phone"/>
+
+        <LinearLayout
+            android:id="@+id/FragmentMainSalary"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@+id/FragmentMainSalaryTitle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/FMainSalaryAvans"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/FragmentMainSalaryAvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/FMainSalaryZP"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/FragmentMainSalaryZP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -132,15 +280,14 @@
         android:layout_height="120dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/dl_dark"
-        android:layout_marginBottom="25dp"
-        android:layout_marginEnd="25dp">
+        android:background="@drawable/wg_last_data"
+        android:layout_marginBottom="25dp">
 
         <TextView
             android:id="@+id/kmfText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Последние данные"
+            android:text="@string/FMainLastData"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -148,10 +295,9 @@
             android:layout_marginVertical="7dp"/>
 
         <TextView
-            android:id="@+id/kmfOdo"
+            android:id="@+id/FragmentMainLastOdo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Одометр: 123456 км"
             android:layout_below="@+id/kmfText"
             android:layout_marginStart="10dp"
             android:textColor="@color/white"
@@ -159,11 +305,10 @@
             android:layout_marginVertical="4dp"/>
 
         <TextView
-            android:id="@+id/kmfFuel"
+            android:id="@+id/FragmentMainLastFuel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Топливо: 48.65 л."
-            android:layout_below="@+id/kmfOdo"
+            android:layout_below="@+id/FragmentMainLastOdo"
             android:layout_marginStart="10dp"
             android:textColor="@color/white"
             android:textSize="20sp"

@@ -1,12 +1,84 @@
 <resources>
     <string name="app_name">DLWorkHelper</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello">Добро пожаловать,</string>
-    <string name="hoursworked">Отработано:</string>
-    <string name="hoursall">Норма:</string>
-    <string name="contacts">Контакты</string>
-    <string name="journal">Журнал записей</string>
-    <string name="settings">Настройки</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    Кнопки-->
+    <string name="ButtonSave" translatable="false">Сохранить</string>
+    <string name="ButtonChange" translatable="false">Изменить</string>
+    <string name="ButtonDelete" translatable="false">Удалить</string>
+
+<!--    Нижнее меню-->
+    <string name="BottomMenuMain" translatable="false">Главная</string>
+    <string name="BottomMenuJournal" translatable="false">Журнал</string>
+    <string name="BottomMenuContacts" translatable="false">Контакты</string>
+
+<!--    Главное меню-->
+    <string name="DrawerMenuCalculator" translatable="false">Калькулятор ПЛ</string>
+    <string name="DrawerMenuGenerator" translatable="false">Генератор штрихкодов</string>
+    <string name="DrawerMenuSync" translatable="false">Синхронизировать данные</string>
+    <string name="DrawerMenuReport" translatable="false">Репорт</string>
+    <string name="DrawerMenuSettings" translatable="false">Настройки</string>
+    <string name="DrawerMenuExit" translatable="false">Выйти из аккаунта</string>
+
+<!--    Главная-->
+    <string name="FMainHello" translatable="false">Добро пожаловать,</string>
+    <string name="FMainHoursWorked" translatable="false">Отработано:</string>
+    <string name="FMainHoursAll" translatable="false">Норма:</string>
+    <string name="FMainFuelKM" translatable="false">Проехали:</string>
+    <string name="FMainFuelF" translatable="false">Сожгли:</string>
+    <string name="FMainSalary" translatable="false">Прогноз ЗП за </string>
+    <string name="FMainSalaryAvans" translatable="false">Аванс:</string>
+    <string name="FMainSalaryZP" translatable="false">Зарплата:</string>
+    <string name="FMainLastData" translatable="false">Последние данные</string>
+
+<!--    Журнал-->
+    <string name="FJournalTitle" translatable="false">Журнал записей</string>
+    <string name="FJournalTime" translatable="false">Время</string>
+    <string name="FJournalFuel" translatable="false">Поездки</string>
+    <string name="FJournalTurnover" translatable="false">Оборот</string>
+
+<!--    Контакты-->
+    <string name="FContactsTitle" translatable="false">Контакты</string>
+
+<!--    Запись времени-->
+    <string name="NoteAddTimeTitle" translatable="false">Рабочее время</string>
+    <string name="NoteAddTimeError" translatable="false">Ошибка!
+Время начала рабочего дня не может быть больше времени окончания рабочего дня!</string>
+    <string name="NoteAddTimeStart" translatable="false">Начало:</string>
+    <string name="NoteAddTimeEnd" translatable="false">Окончание:</string>
+    <string name="NoteAddTimeCheckWorkDay" translatable="false">Рабочий день</string>
+    <string name="NoteAddTimeCheckDayOff" translatable="false">Выходной или праздничный</string>
+    <string name="NoteAddTimeTotalFact" translatable="false">Фактически отработано:</string>
+    <string name="NoteAddTimeTotalDinner" translatable="false">Обед составляет:</string>
+    <string name="NoteAddTimeTotalTime" translatable="false">В запись идёт:</string>
+
+
+<!--    Запись поездки-->
+    <string name="NoteAddFuelError" translatable="false">Ошибка!
+        Одометр при прибытии не может быть меньше одометра при выезде!</string>
+    <string name="NoteAddFuelTitle" translatable="false">Поездка</string>
+    <string name="NoteAddFuelOdoS" translatable="false">Одометр при выезде:</string>
+    <string name="NoteAddFuelOdoF" translatable="false">Одометр при закрытии:</string>
+    <string name="NoteAddFuelKM" translatable="false">км</string>
+    <string name="NoteAddFuelL" translatable="false">л.</string>
+    <string name="NoteAddFuelFuelS" translatable="false">Топливо при выезде:</string>
+    <string name="NoteAddFuelRefuel" translatable="false">Заправлено:</string>
+    <string name="NoteAddFuelZero" translatable="false">0</string>
+    <string name="NoteAddFuelAuto" translatable="false">Транспортное средство</string>
+    <string name="NoteAddFuelConsumption" translatable="false">Расход:</string>
+    <string name="NoteAddFuelTank" translatable="false">Ёмкость бака:</string>
+    <string name="NoteAddFuelKMTotal" translatable="false">Проехали:</string>
+    <string name="NoteAddFuelFueLF" translatable="false">Топливо при закрытии:</string>
+    <string name="NoteAddFuelLastData" translatable="false">Последние данные</string>
+
+<!--    Запись оборота-->
+
+<!--    Генератор баркодов-->
+    <string name="BarcodeTitle" translatable="false">Генератор штрихкодов</string>
+    <string name="BarcodeEnter" translatable="false">Введите штрихкод</string>
+    <string name="BarcodeButtonWB" translatable="false">WB_</string>
+    <string name="BarcodeButtonWBGI" translatable="false">WB-GI-</string>
+    <string name="BarcodeButtonClear" translatable="false">Очистить</string>
+
+
+
 </resources>

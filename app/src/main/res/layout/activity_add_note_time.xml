@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".notes.AddNoteTimeActivity"
+    android:background="@color/background">
+    <ImageButton
+        android:id="@+id/TimeNoteAddButtonBack"
+        android:layout_width="48dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#00FFFFFF"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_back"
+        app:tint="@color/contacts_phone"
+        tools:src="@drawable/icon_back" />
+
+    <RelativeLayout
+        android:id="@+id/TimeNoteAddHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="50dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/wg_headers">
+
+        <TextView
+            android:id="@+id/TimeNoteAddHeaderTitle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="@string/NoteAddTimeTitle"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/TimeNoteAddHeaderTitle">
+            <ImageButton
+                android:id="@+id/TimeNoteAddDatePickerButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#00FFFFFF"
+                android:src="@drawable/icon_calendar"
+                app:tint="@color/white"
+                tools:src="@drawable/icon_calendar" />
+            <TextView
+                android:id="@+id/TimeNoteAddDatePickerText"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/TimeNoteAddTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TimeNoteAddHeader"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/NoteAddTimeStart"
+                android:textSize="18sp" />
+            <TimePicker
+                android:id="@+id/TimeNoteAddStartPicker"
+                android:layout_width="180dp"
+                android:layout_height="140dp"
+                android:timePickerMode="spinner"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/NoteAddTimeEnd"
+                android:textSize="18sp" />
+            <TimePicker
+                android:id="@+id/TimeNoteAddEndPicker"
+                android:layout_width="180dp"
+                android:layout_height="140dp"
+                android:timePickerMode="spinner" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/TimeNoteAddCheckGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@+id/TimeNoteAddTime">
+
+        <RadioButton
+            android:id="@+id/TimeNoteAddCheckGroupWorkDay"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/NoteAddTimeCheckWorkDay" />
+
+        <RadioButton
+            android:id="@+id/TimeNoteAddCheckGroupDayOff"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="@string/NoteAddTimeCheckDayOff"/>
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/TimeNoteAddTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginVertical="15dp"
+        android:layout_below="@+id/TimeNoteAddCheckGroup">
+
+        <TextView
+            android:id="@+id/TimeNoteAddTotalWorkText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NoteAddTimeTotalFact"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/TimeNoteAddTotalWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/TimeNoteAddTotalWorkText"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/TimeNoteAddTotalDinnerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TimeNoteAddTotalWorkText"
+            android:layout_marginVertical="10dp"
+            android:text="@string/NoteAddTimeTotalDinner"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/TimeNoteAddTotalDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/TimeNoteAddTotalDinnerText"
+            android:layout_below="@+id/TimeNoteAddTotalWork"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/TimeNoteAddTotalTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TimeNoteAddTotalDinnerText"
+            android:text="@string/NoteAddTimeTotalTime"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/TimeNoteAddTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/TimeNoteAddTotalTimeText"
+            android:layout_below="@+id/TimeNoteAddTotalDinnerText"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+
+
+    </RelativeLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TimeNoteAddTotal"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/TimeNoteAddButtonSave"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/dl_dark"
+            android:text="@string/ButtonSave"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/TimeNoteAddError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="25dp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

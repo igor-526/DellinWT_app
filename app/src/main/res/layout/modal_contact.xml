@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
-    android:layout_height="450dp"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
     android:background="@color/background">
 
     <RelativeLayout
@@ -37,9 +37,9 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="5dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/close"
+            android:src="@drawable/icon_close"
             app:tint="@color/black"
-            tools:src="@drawable/close" />
+            tools:src="@drawable/icon_close" />
 
 
     </RelativeLayout>
@@ -71,7 +71,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_below="@id/contactItemComment">
 
         <TextView
             android:id="@+id/contactItemNumber"
@@ -101,8 +101,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:scaleType="fitCenter"
-                android:src="@drawable/phone"
-                tools:src="@drawable/phone"
+                android:src="@drawable/icon_phone"
+                tools:src="@drawable/icon_phone"
                 app:tint="@color/dl_dark"
                 android:layout_marginHorizontal="20dp"/>
 
@@ -113,8 +113,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:scaleType="fitCenter"
-                android:src="@drawable/whatsapp"
-                tools:src="@drawable/whatsapp"
+                android:src="@drawable/icon_whatsapp"
+                tools:src="@drawable/icon_whatsapp"
                 app:tint="@color/green"
                 android:layout_marginHorizontal="20dp"/>
 

@@ -12,7 +12,6 @@ interface UserApi {
     @GET("user")
     suspend fun getUserInfo(@Header("Authorization") token: String): User
 
-    @Headers("Content-Type: application/json")
     @POST("auth")
     suspend fun getCode(@Header("user_id") id: String): StatusResponse
 

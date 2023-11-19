@@ -8,94 +8,150 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
-import androidx.lifecycle.asLiveData
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.SearchView.OnQueryTextListener
+import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.dlworkhelper.R
 import com.example.dlworkhelper.adapters.ContactAdapter
+import com.example.dlworkhelper.database.ContactDB
 import com.example.dlworkhelper.database.MainDB
-import com.example.dlworkhelper.databinding.ContactModalBinding
+import com.example.dlworkhelper.databinding.FragmentMenuContactsBinding
+import com.example.dlworkhelper.databinding.ModalContactBinding
 import com.example.dlworkhelper.dataclasses.Contact
-import com.example.dlworkhelper.retrofit.ContactsApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-class FragmentMenuContacts : Fragment(){
+
+class FragmentMenuContacts : Fragment(), ContactAdapter.Listener{
+    private lateinit var contacts: List<ContactDB>
+    private lateinit var binding: FragmentMenuContactsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v = inflater.inflate(R.layout.fragment_menu_contacts, container, false)
-        val rc: RecyclerView = v.findViewById(R.id.contact_recycler)
-//        val retrofit = Retrofit.Builder().baseUrl("http://80.87.192.255:5000")
-//            .addConverterFactory(GsonConverterFactory.create()).build()
-//        val contactsAPI = retrofit.create(ContactsApi::class.java)
-//        CoroutineScope(Dispatchers.IO).launch {
-//            val cont = contactsAPI.getAllContacts()
-//            activity?.runOnUiThread {
-//                val adapter = ContactAdapter(this@FragmentMenuContacts)
-//                adapter.submitList(cont.items)
-//                rc.layoutManager = LinearLayoutManager(context)
-//                rc.adapter = adapter
-//
-//            }
-//        }
-
-
+        binding = FragmentMenuContactsBinding.inflate(layoutInflater)
+        val positions = arrayOf("Должность").toMutableList()
         val db = MainDB.getDB(this.requireContext())
-        val adapter = ContactAdapter()
-        rc.layoutManager = LinearLayoutManager(context)
-        rc.adapter = adapter
+        val adapter = ContactAdapter(this@FragmentMenuContacts)
         CoroutineScope(Dispatchers.IO).launch {
-            val cc = db.getContactsDAO().getAllContacts()
+            contacts = db.getContactsDAO().getAllContacts()
             activity?.runOnUiThread {
-                for (c in cc){
-                    adapter.addContact(Contact(comment = c.comment,
-                                                name = c.name,
-                                                phone = c.phone,
-                                                position = c.position))
+                for (contact in contacts){
+                    adapter.addContact(Contact(comment = contact.comment,
+                                                name = contact.name,
+                                                phone = contact.phone,
+                                                position = contact.position))
+                    if (contact.position !in positions){positions.add(contact.position)}
                 }
             }
-
         }
+        val arrayAdapter = ArrayAdapter(this.requireContext(), android.R.layout.simple_spinner_dropdown_item, positions)
+        with(binding){
+            FragmentContactsRecycler.layoutManager = LinearLayoutManager(context)
+            FragmentContactsRecycler.adapter = adapter
+            FragmentContactsPositions.adapter = arrayAdapter
+            FragmentContactsPositions.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    if (position == 0){
+                        adapter.deleteAll()
+                        CoroutineScope(Dispatchers.IO).launch {
+                            contacts = db.getContactsDAO().getAllContacts()
+                            activity?.runOnUiThread {
+                                for (contact in contacts){
+                                    adapter.addContact(Contact(comment = contact.comment,
+                                        name = contact.name,
+                                        phone = contact.phone,
+                                        position = contact.position))
+                                }
+                            }
+                        }
+                    } else {
+                        adapter.deleteAll()
+                        CoroutineScope(Dispatchers.IO).launch {
+                            contacts = db.getContactsDAO().getPositionContacts(positions[position])
+                            activity?.runOnUiThread {
+                                for (contact in contacts){
+                                    adapter.addContact(Contact(comment = contact.comment,
+                                        name = contact.name,
+                                        phone = contact.phone,
+                                        position = contact.position))
+                                }
+                            }
+                        }
 
 
+                    }
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+            FragmentContactsSearch.setOnSearchClickListener {
+                FragmentContactsPositions.visibility = View.GONE
+            }
+            FragmentContactsSearch.setOnCloseListener { onClose(FragmentContactsPositions) }
+            FragmentContactsSearch.setOnSearchClickListener {
+                FragmentContactsPositions.visibility = View.GONE
+            }
+            FragmentContactsSearch.setOnCloseListener { onClose(FragmentContactsPositions) }
+            FragmentContactsSearch.setOnQueryTextListener(object : OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
 
-        return v
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    adapter.deleteAll()
+                    CoroutineScope(Dispatchers.IO).launch {
+                        contacts = newText?.let { db.getContactsDAO().getSearchContacts(it) }!!
+                        activity?.runOnUiThread {
+                            for (contact in contacts){
+                                adapter.addContact(Contact(comment = contact.comment,
+                                    name = contact.name,
+                                    phone = contact.phone,
+                                    position = contact.position))
+                            }
+                        }
+                    }
+                    return true
+                }
+            })
+        }
+        return binding.root
     }
 
-//    override fun onClick(contact: Contact) {
-//        val contactView = LayoutInflater.from(context).inflate(R.layout.contact_modal, null)
-//        val builder = AlertDialog.Builder(context)
-//            .setView(contactView)
-//        val binding = ContactModalBinding.bind(contactView)
-//        val contactItem = builder.show()
-//        with(binding){
-//            contactItemName.text = contact.name
-//            contactItemComment.text = contact.comment
-//            contactItemNumber.text = contact.phone
-//            contactItemPosition.text = contact.position
-//            contactItemCall.setOnClickListener {
-//                val intent = Intent(Intent.ACTION_DIAL)
-//                intent.data = Uri.parse("tel:" + contact.phone)
-//                startActivity(intent)
-//            }
-//            contactItemWhatsapp.setOnClickListener {
-//                val intent = Intent(Intent.ACTION_VIEW)
-//                intent.data = Uri.parse("https://wa.me/" + contact.phone)
-//                startActivity(intent)
-//            }
-//            contactItemBack.setOnClickListener {
-//                contactItem.dismiss()
-//            }
-//        }
-//
-//
-//    }
+    private fun onClose(spinner: Spinner): Boolean {
+        spinner.visibility = View.VISIBLE
+        return false
+    }
 
+    override fun onClickContact(contact: Contact) {
+        val contactView = LayoutInflater.from(context)
+            .inflate(R.layout.modal_contact, null)
+        val builder = AlertDialog.Builder(context).setView(contactView)
+        val cbinding = ModalContactBinding.bind(contactView)
+        val contactModal = builder.show()
+        with(cbinding){
+            contactItemName.text = contact.name
+            contactItemPosition.text = contact.position
+            contactItemComment.text = contact.comment
+            contactItemNumber.text = contact.phone
+            contactItemBack.setOnClickListener{contactModal.dismiss()}
+            contactItemCall.setOnClickListener {
+                val intent = Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel: ${contact.phone}"))
+                startActivity(intent)
+            }
+            contactItemWhatsapp.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://wa.me/${contact.phone}"))
+                startActivity(intent)
+            }
+        }
+    }
 }

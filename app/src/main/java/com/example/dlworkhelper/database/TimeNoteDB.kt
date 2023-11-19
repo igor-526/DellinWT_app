@@ -3,22 +3,17 @@ package com.example.dlworkhelper.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Date
-import java.sql.Time
 
 @Entity(tableName = "journal_time")
 data class TimeNoteDB(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = false)
     val id: Int,
 
-    @ColumnInfo(name = "date")
-    val date: Date,
-
     @ColumnInfo(name = "start")
-    val start: Time,
+    val start: String,
 
     @ColumnInfo(name = "end")
-    val end: Time,
+    val end: String,
 
     @ColumnInfo(name = "total")
     val total: Float,

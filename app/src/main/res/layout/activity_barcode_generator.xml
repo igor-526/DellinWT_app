@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BarcodeGeneratorActivity"
+    android:background="@color/background">
+
+    <ImageButton
+        android:id="@+id/BarcodeGeneratorButtonBack"
+        android:layout_width="48dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#00FFFFFF"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_back"
+        app:tint="@color/contacts_phone"
+        tools:src="@drawable/icon_back" />
+
+    <RelativeLayout
+        android:id="@+id/BarcodeGeneratorHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="50dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/wg_headers">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="@string/BarcodeTitle"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/BarcodeGeneratorInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/BarcodeGeneratorHeader"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp">
+        <EditText
+            android:id="@+id/BarcodeGeneratorInputText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginEnd="65dp"
+            android:hint="@string/BarcodeEnter"
+            android:paddingStart="10dp"
+            android:background="@drawable/wg_inputs_corners_left"/>
+
+        <ImageButton
+            android:id="@+id/BarcodeGeneratorInputButton"
+            android:layout_width="65dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/wg_i_button_corners_right"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu_barcode"
+            tools:src="@drawable/menu_barcode" />
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/BarcodeGeneratorButtons"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="25dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/BarcodeGeneratorInput">
+        
+        <Button
+            android:id="@+id/BarcodeGeneratorButtonsWB"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/BarcodeButtonWB"
+            android:backgroundTint="@color/dl_dark"
+            android:layout_marginHorizontal="5dp"/>
+        <Button
+            android:id="@+id/BarcodeGeneratorButtonsWBGI"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/BarcodeButtonWBGI"
+            android:backgroundTint="@color/dl_dark"
+            android:layout_marginHorizontal="5dp"/>
+        <Button
+            android:id="@+id/BarcodeGeneratorButtonsClear"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/BarcodeButtonClear"
+            android:backgroundTint="@color/dl_dark"
+            android:layout_marginHorizontal="5dp"/>
+
+        
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/BarcodeGeneratorImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/BarcodeGeneratorButtons"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="25dp"/>
+
+</RelativeLayout>
