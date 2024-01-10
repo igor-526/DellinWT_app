@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(){
         binding.mainLayout.openDrawer(binding.drawerMenu, true)
     }
 
-    fun syncContacts(){
+    private fun syncContacts(){
         CoroutineScope(Dispatchers.IO).launch {
             val contacts = contactsAPI.getAllContacts(token)
             db.getContactsDAO().deleteAllContacts()
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity(){
         }
     }
 
-    fun syncProfile(){
+    private fun syncProfile(){
         CoroutineScope(Dispatchers.IO).launch {
             val user = userAPI.getUserInfo(token)
             db.getSettingsDAO().insertSetting(SettingsDB("username", user.username))

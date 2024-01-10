@@ -39,50 +39,93 @@
             android:src="@drawable/icon_close"
             app:tint="@color/white"
             tools:src="@drawable/icon_close" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/timeModalStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="20dp"
+        android:layout_below="@id/headerTimeModal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="Начало:"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/timeModalStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="07:00"
+                android:textSize="24sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="Окончание:"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/timeModalEnd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="18:00"
+                android:textSize="24sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/timeModalStatsTotal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_below="@+id/timeModalStats">
+
+        <TextView
+            android:id="@+id/timeModalTotalText"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:text="В запись:"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/timeModalTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:layout_toEndOf="@id/timeModalTotalText"
+            android:layout_marginStart="20dp"
+            android:text="10.00 ч."
+            android:textSize="24sp"/>
 
 
     </RelativeLayout>
-
-
-
-    <TextView
-        android:id="@+id/timeModalStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/headerTimeModal"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:textStyle="italic"
-        android:text="Начало: 07:00"
-        android:textSize="24sp"/>
-
-    <TextView
-        android:id="@+id/timeModalEnd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_below="@+id/timeModalStart"
-        android:textStyle="italic"
-        android:text="Окончание: 18:00"
-        android:textSize="24sp"/>
-
-    <TextView
-        android:id="@+id/timeModalTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_below="@+id/timeModalEnd"
-        android:textStyle="italic"
-        android:text="В запись: 10.00 ч."
-        android:textSize="24sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:layout_below="@id/timeModalTotal"
+        android:layout_below="@id/timeModalStatsTotal"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="20dp">
 

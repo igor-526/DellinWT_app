@@ -64,7 +64,7 @@ class FragmentMenuJournal : Fragment(), TimeJournalAdapter.Listener,
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMenuJournalBinding.inflate(layoutInflater)
         with(binding){
             FragmentJournalLottie.repeatCount = 0
@@ -138,11 +138,11 @@ class FragmentMenuJournal : Fragment(), TimeJournalAdapter.Listener,
                 timeModalDayStatus.text = "Рабочий день"
             if (timeNote.c == 2)
                 timeModalDayStatus.text = "Выходной день"
-            val startText = "Начало: " + start.hour.toString().padStart(2, '0') +
+            val startText = start.hour.toString().padStart(2, '0') +
                     ":" + start.minute.toString().padEnd(2, '0')
-            val endText = "Окончание: " + end.hour.toString().padStart(2, '0') +
+            val endText = end.hour.toString().padStart(2, '0') +
                     ":" + end.minute.toString().padEnd(2, '0')
-            val totalText = "Засчитано: " + timeNote.total + " ч."
+            val totalText = timeNote.total.toString() + " ч."
             timeModalStart.text = startText
             timeModalEnd.text = endText
             timeModalTotal.text = totalText
